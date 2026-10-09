@@ -2,7 +2,7 @@
 
 # HerzBaa
 
-鍾雅婷／赫滋與羊的個人作品集網站。純靜態 HTML／CSS／JS，不需要建置步驟，直接部署整個資料夾即可（例如 GitHub Pages）。
+鍾雅婷／赫滋與羊的個人作品集網站，正式網址：https://herzbaa.com/ 。純靜態 HTML／CSS／JS，不需要建置步驟，直接部署整個資料夾即可（例如 GitHub Pages）。
 
 ## 結構
 
