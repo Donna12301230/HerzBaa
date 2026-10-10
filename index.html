@@ -1,617 +1,684 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="zh-Hant-TW">
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>赫滋與羊HerzBaa</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>赫滋與羊 HerzBaa — 鍾雅婷｜插畫 × 全端開發</title>
+  <meta name="description" content="赫滋與羊 HerzBaa 由插畫家暨全端工程師鍾雅婷創立，融合藝術與科技，透過插畫、繪本、展覽與程式開發，打造富含故事性的品牌體驗。">
+  <meta name="theme-color" content="#FBF6EF">
+  <meta name="color-scheme" content="light">
 
-  <!-- Favicons -->
-  <link href="assets/img/sheepbig.png" rel="icon">
-  <link href="assets/img/logo.png" rel="apple-touch-icon">
+  <link rel="canonical" href="https://herzbaa.com/">
 
-  <!-- Fonts -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://herzbaa.com/">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="赫滋與羊 HerzBaa">
+  <meta property="og:title" content="赫滋與羊 HerzBaa — 鍾雅婷｜插畫 × 全端開發">
+  <meta property="og:description" content="插畫家 × 全端工程師鍾雅婷的作品集：插畫、繪本、展覽、網站與軟體開發。">
+  <meta property="og:image" content="https://herzbaa.com/assets/img/opt/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/sheepbig.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/sheepbig.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chiron+Sung+HK:ital,wght@0,200..900;1,200..900&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@700;900&display=swap">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/opt/hero-1600.webp"
+    imagesrcset="assets/img/opt/hero-960.webp 960w, assets/img/opt/hero-1600.webp 1600w, assets/img/opt/hero-2400.webp 2400w"
+    imagesizes="100vw" fetchpriority="high">
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/lenis/lenis.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 
-  <!-- =======================================================
-  * Template Name: Folio
-  * Template URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
-  * Updated: Aug 08 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script>
+    // 先標記 JS 已啟用，讓進場動畫只在可執行腳本時隱藏內容
+    document.documentElement.classList.add('js');
+    try { if (sessionStorage.getItem('hb-loaded')) document.documentElement.classList.add('is-returning'); } catch (e) {}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "鍾雅婷",
+    "alternateName": "Ya-Ting Zhong",
+    "url": "https://herzbaa.com/",
+    "jobTitle": "插畫家、全端工程師",
+    "worksFor": { "@type": "Organization", "name": "赫滋與羊國際藝術有限公司", "alternateName": "HerzBaa", "url": "https://herzbaa.com/" },
+    "alumniOf": ["國立臺灣藝術大學", "國立空中大學"],
+    "email": "mailto:ckchildlikekid@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "岡山區", "addressRegion": "高雄市", "addressCountry": "TW" },
+    "sameAs": [
+      "https://www.facebook.com/p/%E8%B5%AB%E6%BB%8B%E8%88%87%E7%BE%8A-HerzBaa-100093899453510/",
+      "https://www.instagram.com/ckhz.art/",
+      "https://www.linkedin.com/in/ya-ting-zhong-002512307"
+    ]
+  }
+  </script>
 </head>
 
-<body class="index-page">
+<body>
 
-  <div id="header-include"></div>
+  <a class="skip-link" href="#main">跳到主要內容</a>
 
-  <main class="main">
+  <!-- 共用 SVG 圖形 -->
+  <svg width="0" height="0" class="visually-hidden" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="sheep" viewBox="0 0 120 90">
+        <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path class="sheep-leg" d="M38 66v16M52 68v15M74 68v15M86 66v16" />
+          <path fill="#FFFDF9"
+            d="M30 52c-10-2-12-16-3-20-2-10 10-17 18-11 4-9 18-10 22-2 7-6 19-2 20 7 10-1 15 10 9 17 7 6 2 18-8 17-2 9-15 12-21 6-6 7-19 6-22-1-9 4-19-3-15-13z" />
+          <path fill="#FBC4AB" d="M92 30c8-4 20 0 22 9 1 8-6 13-14 12-7-1-12-6-12-12 0-4 1-7 4-9z" />
+          <path fill="#FFFDF9" d="M88 30c-3-6 3-12 9-10 3-5 11-4 12 2 5 1 6 8 1 10-4 4-12 3-15 0-3 2-7 1-7-2z" />
+          <path d="M104 41c1 1 3 1 4 0" />
+          <path fill="#FBC4AB" d="M89 34c-6-1-10 2-11 6 4 1 8-1 11-4" />
+        </g>
+      </symbol>
+      <symbol id="cloud" viewBox="0 0 200 110">
+        <path fill="currentColor"
+          d="M30 92c-17 0-28-12-26-26 2-12 13-20 25-19 2-18 19-31 37-28 7-14 24-21 40-15 14 5 22 18 21 31 13-6 30 1 34 15 14-1 27 10 27 24 0 11-9 18-20 18H30z" />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+          d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-arrow-ne" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+          d="M7 17 17 7M9 7h8v8" />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6 6 18" />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+          <rect x="8" y="8" width="12" height="12" rx="2.5" />
+          <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+        </g>
+      </symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.2" cy="6.8" r=".6" fill="currentColor" />
+        </g>
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M6.9 8.8H3.8V20h3.1V8.8zM5.3 3.8a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6zM20.2 13.6c0-3-1.6-5-4.3-5-1.4 0-2.4.8-2.8 1.5V8.8h-3V20h3.1v-5.8c0-1.5.7-2.6 2-2.6s1.9.9 1.9 2.6V20h3.1v-6.4z" />
+      </symbol>
+    </defs>
+  </svg>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+  <!-- Preloader：數羊 -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__stage">
+      <svg class="loader__sheep"><use href="#sheep" /></svg>
+      <svg class="loader__fence" viewBox="0 0 120 50">
+        <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+          d="M20 48V10l6-6 6 6v38M88 48V10l6-6 6 6v38M14 20h92M14 36h92" />
+      </svg>
+    </div>
+    <p class="loader__count">數到第 <span class="loader__num">01</span> 隻羊…</p>
+  </div>
 
-      <img src="assets/img/001.png" alt="" data-aos="fade-in">
+  <div class="progress" aria-hidden="true">
+    <div class="progress__bar"></div>
+    <svg class="progress__sheep"><use href="#sheep" /></svg>
+  </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2 class="noto-serif-tc-700">鍾雅婷<br></h2>
-        <p class="noto-serif-tc-400">I'm <span class="typed"
-            data-typed-items="Designer, Developer, Freelancer, Photographer">Freelancer</span></p>
-        <div class="social-links">
-          <a href="https://www.facebook.com/p/%E8%B5%AB%E6%BB%8B%E8%88%87%E7%BE%8A-HerzBaa-100093899453510/"
-            target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.instagram.com/ckhz.art/" target="_blank" rel="noopener"><i
-              class="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/ya-ting-zhong-002512307" target="_blank" rel="noopener"><i
-              class="bi bi-linkedin"></i></a>
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label"></span></div>
+  </div>
+
+  <header class="site-header" id="header">
+    <div class="site-header__inner">
+      <a href="#top" class="brand" aria-label="赫滋與羊 HerzBaa 回到頁首">
+        <img src="assets/img/opt/logo-320.webp" srcset="assets/img/opt/logo-320.webp 320w, assets/img/opt/logo-640.webp 640w"
+          sizes="140px" width="320" height="131" alt="赫滋與羊 HerzBaa">
+      </a>
+      <nav class="nav" aria-label="主要導覽">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#about"><span data-text="關於">關於</span></a></li>
+          <li><a class="nav__link" href="#journey"><span data-text="歷程">歷程</span></a></li>
+          <li><a class="nav__link" href="#services"><span data-text="服務">服務</span></a></li>
+          <li><a class="nav__link" href="#works"><span data-text="作品集">作品集</span></a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--pill btn--rose header-cta" href="#contact" data-magnetic><span>合作洽談</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="visually-hidden">開啟選單</span>
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="行動版導覽">
+      <ol class="mobile-menu__list">
+        <li><a href="#about"><small>01</small>關於</a></li>
+        <li><a href="#journey"><small>02</small>歷程</a></li>
+        <li><a href="#services"><small>03</small>服務</a></li>
+        <li><a href="#works"><small>04</small>作品集</a></li>
+        <li><a href="#contact"><small>05</small>聯絡</a></li>
+      </ol>
+    </nav>
+    <p class="mobile-menu__mail"><a href="mailto:ckchildlikekid@gmail.com">ckchildlikekid@gmail.com</a></p>
+  </div>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <img class="hero__img" src="assets/img/opt/hero-1600.webp"
+          srcset="assets/img/opt/hero-960.webp 960w, assets/img/opt/hero-1600.webp 1600w, assets/img/opt/hero-2400.webp 2400w"
+          sizes="100vw" width="2400" height="1567" fetchpriority="high"
+          alt="粉色雲朵般的羊群中，紅髮女孩赫滋抱著一隻羊微笑">
+      </div>
+      <div class="hero__clouds" aria-hidden="true">
+        <svg class="hero__cloud hero__cloud--1" data-depth="0.6"><use href="#cloud" /></svg>
+        <svg class="hero__cloud hero__cloud--2" data-depth="1.2"><use href="#cloud" /></svg>
+        <svg class="hero__cloud hero__cloud--3" data-depth="0.9"><use href="#cloud" /></svg>
+      </div>
+
+      <div class="hero__content">
+        <p class="eyebrow hero__eyebrow" data-reveal>
+          <span class="dot" aria-hidden="true"></span>鍾雅婷 Ya-Ting Zhong · 創辦人
+        </p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="line"><span class="hero__name" data-split>赫滋與羊</span></span>
+        </h1>
+        <div class="hero__sub" data-reveal>
+          <p class="hero__roles">
+            <span class="visually-hidden">身分：插畫家、設計師、全端工程師、說故事的人</span>
+            <span aria-hidden="true">I'm a</span>
+            <span class="roles" aria-hidden="true">
+              <span class="roles__item is-active">Illustrator</span>
+              <span class="roles__item">Designer</span>
+              <span class="roles__item">Developer</span>
+              <span class="roles__item">Storyteller</span>
+            </span>
+          </p>
+          <p class="hero__lede">雕塑系出身的插畫家，也是寫程式的全端工程師。<br class="br-lg">用插畫與敘事建立品牌體驗，讓藝術與科技在同一個故事裡相遇。</p>
         </div>
       </div>
 
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <!-- <h2>About</h2> -->
-
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-between">
-          <div class="col-lg-4 profile-img align-self-start">
-            <img src="assets/img/yating.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-7 content">
-            <h3>「赫滋與羊國際藝術有限公司」創辦人</h3>
-            <p>
-              於台灣藝術大學雕塑系完成學業，憑藉藝術設計專業，不僅擅長運用插畫與敘事建立品牌體驗，更具備跨領域技術能力並重視團隊協作，共同推動創新專案成功落地。
-            </p>
-            <ul>
-
-              </li>
-              <li><i class="bi bi-check2-all"></i> <span>策劃與展出個展 4 場、藝術博覽會 3 場。發表作品系列 20 件，繪本創作1本，結合插畫、敘事與空間展演。
-                </span></li>
-              <li><i class="bi bi-check2-all"></i> <span>故事模特創作計畫訪談逾30人，並與PODCAST日更聚場合作企劃，將訪談記錄與插畫創作結合。</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>異業合作如全家好萌友，遠傳心生活短影音，婚禮似顏繪黃金曼特寧，SMAIL韓式拍貼機等。</span></li>
-            </ul>
-            <h3>藝術產業跨領域資訊產業</h3>
-            <p>主動投入資展國際全端工程師培訓，熱忱學習並實踐 C#、JavaScript、SQL Server 等技術，積極結合創意與程式邏輯提升開發能力。目前於空大資訊與管理系進修，並專攻AI學程。</p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> <span>6人團隊開發B2B2C電商平台，支援會員申請廠商，上架多型號商品。使用ASP.NET Core
-                  WebAPI及Vue專案，前後端整合開發，使用Azure SQL資料庫與串接第三方API。</span>
-              </li>
-              <li><i class="bi bi-check2-all"></i> <span>實作通知中心，SMTP發送信件、Hangfire排程、OpenAI生成訊息。SignalR商品導向即時聊天室。Open AI
-                  API串接客服及生成文案。</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>針對市集販售場景設計，便於插畫商品與訂單管理。自建 WinForms 系統，具備前後台管理介面，支援 CRUD
-                  操作（新增／修改／刪除／查詢）。</span></li>
-            </ul>
-          </div>
-        </div>
-
+      <div class="hero__foot">
+        <a class="scroll-cue" href="#about" data-cursor="往下">
+          <span class="scroll-cue__track" aria-hidden="true"><span></span></span>
+          往下滑，跟著羊群走
+        </a>
+        <button class="sheep-counter" type="button" data-cursor="數羊">
+          <svg class="sheep-counter__icon" aria-hidden="true"><use href="#sheep" /></svg>
+          <span>點我數羊 · 已數 <b class="sheep-counter__n" aria-live="polite">0</b> 隻</span>
+        </button>
       </div>
+    </section>
 
-    </section><!-- /About Section -->
-
-    <!-- Services Section -->
-    <!-- Timeline Section -->
-    <section id="timeline" class="timeline section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>學經歷及教育訓練</h2>
-      </div><!-- End Section Title -->
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="timeline-wrapper">
-          <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
-              <div class="timeline-time">2025/09 · 就讀中</div>
-              <div class="timeline-content">
-                <h4>國立空中大學</h4>
-                <p>管理與資訊學系就讀中</p>
-              </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-              <div class="timeline-time">2025/04-09</div>
-              <div class="timeline-content">
-                <h4>全端工程師養成班</h4>
-                <p>資展國際股份有限公司</p>
-              </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="timeline-time">2024/05 · 營業中</div>
-              <div class="timeline-content">
-                <h4>赫滋與羊國際藝術有限公司</h4>
-                <p>負責人 / 執行專案與品牌合作</p>
-              </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-              <div class="timeline-time">2020/7-2023/6</div>
-              <div class="timeline-content">
-                <h4>新北市召會</h4>
-                <p>大學組服務人員；全時間福音工作訓練</p>
-              </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-              <div class="timeline-time">2016/9-2020/6</div>
-              <div class="timeline-content">
-                <h4>國立臺灣藝術大學</h4>
-                <p>雕塑學系畢業；曾任雕塑系及創意產業設計所助教</p>
-              </div>
-            </div>
-          </div>
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span>插畫設計</span><svg><use href="#sheep" /></svg>
+          <span>繪本創作</span><svg><use href="#cloud" /></svg>
+          <span>美術展覽</span><svg><use href="#sheep" /></svg>
+          <span>網頁設計</span><svg><use href="#cloud" /></svg>
+          <span>全端工程</span><svg><use href="#sheep" /></svg>
+          <span>異業合作</span><svg><use href="#cloud" /></svg>
+        </div>
+        <div class="marquee__group">
+          <span>插畫設計</span><svg><use href="#sheep" /></svg>
+          <span>繪本創作</span><svg><use href="#cloud" /></svg>
+          <span>美術展覽</span><svg><use href="#sheep" /></svg>
+          <span>網頁設計</span><svg><use href="#cloud" /></svg>
+          <span>全端工程</span><svg><use href="#sheep" /></svg>
+          <span>異業合作</span><svg><use href="#cloud" /></svg>
         </div>
       </div>
-    </section><!-- /Timeline Section -->
+    </div>
 
-    <section id="services" class="services section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>服務</h2>
-        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
-      </div><!-- End Section Title -->
-
+    <!-- About -->
+    <section class="section about" id="about" aria-labelledby="about-title">
       <div class="container">
+        <header class="section-head">
+          <p class="section-head__num" aria-hidden="true">01</p>
+          <h2 class="section-head__title" id="about-title"><span data-split>關於雅婷</span></h2>
+          <p class="section-head__en" aria-hidden="true">About</p>
+        </header>
 
-        <div class="row gy-4">
+        <p class="statement" data-scrub>畢業於臺灣藝術大學雕塑系，擅長以插畫與敘事建立品牌體驗；轉身投入全端開發，用程式讓故事被更多人看見。重視團隊協作，與夥伴一起把創意穩穩落地。</p>
 
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-brush"></i></div>
-            <div>
-              <h4 class="title">插畫設計</h4>
-              <!-- <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                occaecati cupiditate non provident</p> -->
-              <!-- <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a> -->
+        <div class="about__grid">
+          <figure class="portrait" data-reveal>
+            <div class="portrait__frame">
+              <img src="assets/img/opt/portrait-825.webp"
+                srcset="assets/img/opt/portrait-480.webp 480w, assets/img/opt/portrait-825.webp 825w"
+                sizes="(min-width: 960px) 34vw, 86vw" width="825" height="851" loading="lazy" decoding="async"
+                alt="鍾雅婷站在自己的插畫作品前開心地笑著">
             </div>
-          </div>
-          <!-- End Service Item -->
+            <figcaption class="portrait__sticker">Hi! 我是雅婷<br><small>赫滋與羊國際藝術有限公司 創辦人</small></figcaption>
+          </figure>
 
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-book"></i></div>
-            <div>
-              <h4 class="title">繪本創作</h4>
-              <!-- <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat tarad limino ata</p> -->
-              <!-- <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a> -->
-            </div>
-          </div><!-- End Service Item -->
+          <div class="about__body">
+            <ul class="stats" role="list">
+              <li class="stat" data-reveal><b class="stat__num" data-count="4">4</b><span>場個展策劃與展出</span></li>
+              <li class="stat" data-reveal><b class="stat__num" data-count="3">3</b><span>場藝術博覽會</span></li>
+              <li class="stat" data-reveal><b class="stat__num" data-count="20">20</b><span>件系列作品發表</span></li>
+              <li class="stat" data-reveal><b class="stat__num" data-count="30" data-suffix="+">30+</b><span>位故事模特訪談</span></li>
+            </ul>
 
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-easel"></i></div>
-            <div>
-              <h4 class="title">美術展覽</h4>
-              <!-- <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur</p> -->
-              <!-- <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a> -->
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-laptop"></i></div>
-            <div>
-              <h4 class="title">網頁設計</h4>
-              <!-- <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum</p> -->
-              <!-- <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a> -->
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-pc-display"></i></div>
-            <div>
-              <h4 class="title">全端工程</h4>
-              <!-- <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                praesentium voluptatum deleniti atque</p> -->
-              <!-- <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a> -->
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-            <div>
-              <h4 class="title">異業合作</h4>
-              <!-- <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum
-                soluta nobis est eligendi</p> -->
-              <!-- <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a> -->
-            </div>
-          </div><!-- End Service Item -->
-        </div>
-      </div>
-
-    </section><!-- /Services Section -->
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>技能</h2>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
-            <h3 class="skills-title">語言</h3>
-            <div class="skill-card">
-              <p>英文<br>IELTS 5.0<br>TOEIC 555</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="skills-title">美術及設計</h3>
-            <div class="skill-card">
-              <p>Illustrator<br>Photoshop<br>Indesign<br>Skechbook<br>美術(水彩/油畫/壓克力)<br>雕塑(泥/木/石/鋼)</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="skills-title">前端</h3>
-            <div class="skill-card">
-              <p>Bootstrap<br>jQuery<br>JavaScript<br>HTML5<br>CSS<br>Vue3</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <h3 class="skills-title">後端及應用</h3>
-            <div class="skill-card">
-              <p>C#<br>SQL<br>ASP.Net Core MVC<br>Ado.NET<br>Restful+Ajax<br>Azure<br>Git</p>
+            <div class="duo">
+              <article class="duo__col" data-reveal>
+                <h3 class="duo__title"><span class="tag tag--art">Art</span>藝術創作與品牌</h3>
+                <ul class="checklist">
+                  <li>策劃與展出個展 4 場、藝術博覽會 3 場；發表作品系列 20 件、繪本創作 1 本，結合插畫、敘事與空間展演。</li>
+                  <li>「故事模特」創作計畫訪談逾 30 人，並與 Podcast《日更聚場》合作企劃，將訪談紀錄與插畫創作結合。</li>
+                  <li>異業合作：全家好萌友、遠傳心生活短影音、黃金曼特寧婚禮似顏繪、SMAIL 韓式拍貼機等。</li>
+                </ul>
+              </article>
+              <article class="duo__col" data-reveal>
+                <h3 class="duo__title"><span class="tag tag--code">Code</span>跨領域資訊開發</h3>
+                <ul class="checklist">
+                  <li>6 人團隊開發 B2B2C 電商平台，支援會員申請廠商、上架多型號商品；ASP.NET Core Web API + Vue，串接 Azure SQL 與第三方 API。</li>
+                  <li>實作通知中心：SMTP 寄信、Hangfire 排程、OpenAI 生成訊息；SignalR 商品導向即時聊天室與 AI 客服。</li>
+                  <li>為市集販售場景自建 WinForms 系統，具前後台管理介面與完整 CRUD，方便插畫商品與訂單管理。</li>
+                </ul>
+              </article>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- /Skills Section -->
+    </section>
 
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>作品集</h2>
-
-      </div><!-- End Section Title -->
-
+    <!-- Journey -->
+    <section class="section journey" id="journey" aria-labelledby="journey-title">
       <div class="container">
+        <header class="section-head">
+          <p class="section-head__num" aria-hidden="true">02</p>
+          <h2 class="section-head__title" id="journey-title"><span data-split>學經歷與訓練</span></h2>
+          <p class="section-head__en" aria-hidden="true">Journey</p>
+        </header>
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        <ol class="timeline" role="list">
+          <li class="timeline__line" aria-hidden="true"><span></span></li>
+          <li class="timeline__item" data-reveal>
+            <time class="timeline__time">2025.09 — 就讀中</time>
+            <div class="timeline__card">
+              <h3>國立空中大學</h3>
+              <p>管理與資訊學系，專攻 AI 學程</p>
+            </div>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <time class="timeline__time">2025.04 — 2025.09</time>
+            <div class="timeline__card">
+              <h3>全端工程師養成班</h3>
+              <p>資展國際股份有限公司｜C#、JavaScript、SQL Server、Vue</p>
+            </div>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <time class="timeline__time">2024.05 — 營業中</time>
+            <div class="timeline__card timeline__card--accent">
+              <h3>赫滋與羊國際藝術有限公司</h3>
+              <p>負責人｜執行專案與品牌合作</p>
+            </div>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <time class="timeline__time">2020.07 — 2023.06</time>
+            <div class="timeline__card">
+              <h3>新北市召會</h3>
+              <p>大學組服務人員；全時間福音工作訓練</p>
+            </div>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <time class="timeline__time">2016.09 — 2020.06</time>
+            <div class="timeline__card">
+              <h3>國立臺灣藝術大學</h3>
+              <p>雕塑學系畢業；曾任雕塑系及創意產業設計所助教</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">全部</li>
-            <li data-filter=".filter-app">網站</li>
-            <li data-filter=".filter-product">軟體</li>
-            <li data-filter=".filter-branding">插畫</li>
-            <li data-filter=".filter-books">展覽</li>
-          </ul><!-- End Portfolio Filters -->
+    <!-- Services -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-head__num" aria-hidden="true">03</p>
+          <h2 class="section-head__title" id="services-title"><span data-split>我能為你做的事</span></h2>
+          <p class="section-head__en" aria-hidden="true">Services</p>
+        </header>
 
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+        <ul class="svc" role="list">
+          <li class="svc__row" data-reveal data-preview="assets/img/opt/artwork-2-640.webp">
+            <span class="svc__num">01</span>
+            <h3 class="svc__title">插畫設計</h3>
+            <p class="svc__desc">角色、品牌視覺與商品插畫，以溫暖的手感筆觸說出你的故事。</p>
+            <svg class="svc__arrow" aria-hidden="true"><use href="#i-arrow-ne" /></svg>
+          </li>
+          <li class="svc__row" data-reveal data-preview="assets/img/opt/herz-480.webp">
+            <span class="svc__num">02</span>
+            <h3 class="svc__title">繪本創作</h3>
+            <p class="svc__desc">從訪談、腳本到完稿，把真實的人生片段編織成一本可以翻閱的故事。</p>
+            <svg class="svc__arrow" aria-hidden="true"><use href="#i-arrow-ne" /></svg>
+          </li>
+          <li class="svc__row" data-reveal data-preview="assets/img/opt/gallery-5-640.webp">
+            <span class="svc__num">03</span>
+            <h3 class="svc__title">美術展覽</h3>
+            <p class="svc__desc">個展、博覽會與快閃展的策劃與空間展演，讓作品走進生活現場。</p>
+            <svg class="svc__arrow" aria-hidden="true"><use href="#i-arrow-ne" /></svg>
+          </li>
+          <li class="svc__row" data-reveal data-preview="assets/img/opt/web-1-640.webp">
+            <span class="svc__num">04</span>
+            <h3 class="svc__title">網頁設計</h3>
+            <p class="svc__desc">兼顧美感與易用性的介面設計，替品牌打造有記憶點的線上門面。</p>
+            <svg class="svc__arrow" aria-hidden="true"><use href="#i-arrow-ne" /></svg>
+          </li>
+          <li class="svc__row" data-reveal data-preview="assets/img/opt/web-3-640.webp">
+            <span class="svc__num">05</span>
+            <h3 class="svc__title">全端工程</h3>
+            <p class="svc__desc">ASP.NET Core、Vue 與 SQL 的前後端整合開發，從資料庫到畫面一手包辦。</p>
+            <svg class="svc__arrow" aria-hidden="true"><use href="#i-arrow-ne" /></svg>
+          </li>
+          <li class="svc__row" data-reveal data-preview="assets/img/opt/gallery-8-640.webp">
+            <span class="svc__num">06</span>
+            <h3 class="svc__title">異業合作</h3>
+            <p class="svc__desc">IP 授權、聯名商品、短影音與活動企劃，和品牌一起玩出新火花。</p>
+            <svg class="svc__arrow" aria-hidden="true"><use href="#i-arrow-ne" /></svg>
+          </li>
+        </ul>
+      </div>
+      <div class="svc-preview" aria-hidden="true"><img alt=""></div>
+    </section>
 
-            <!-- 網站 -->
+    <!-- Skills -->
+    <section class="section skills" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head section-head--compact">
+          <h2 class="section-head__title" id="skills-title"><span data-split>工具箱</span></h2>
+          <p class="section-head__en" aria-hidden="true">Toolbox</p>
+        </header>
+        <div class="skills__grid">
+          <article class="skill" data-reveal>
+            <h3 class="skill__title"><span aria-hidden="true">✎</span>美術及設計</h3>
+            <ul class="chips" role="list">
+              <li>Illustrator</li><li>Photoshop</li><li>InDesign</li><li>Sketchbook</li>
+              <li>水彩・油畫・壓克力</li><li>雕塑（泥／木／石／鋼）</li>
+            </ul>
+          </article>
+          <article class="skill" data-reveal>
+            <h3 class="skill__title"><span aria-hidden="true">◐</span>前端</h3>
+            <ul class="chips" role="list">
+              <li>HTML5</li><li>CSS</li><li>JavaScript</li><li>Vue 3</li><li>Bootstrap</li><li>jQuery</li>
+            </ul>
+          </article>
+          <article class="skill" data-reveal>
+            <h3 class="skill__title"><span aria-hidden="true">⌘</span>後端及應用</h3>
+            <ul class="chips" role="list">
+              <li>C#</li><li>ASP.NET Core MVC</li><li>ADO.NET</li><li>SQL</li><li>RESTful + Ajax</li><li>Azure</li><li>Git</li>
+            </ul>
+          </article>
+          <article class="skill" data-reveal>
+            <h3 class="skill__title"><span aria-hidden="true">Aa</span>語言</h3>
+            <ul class="chips" role="list">
+              <li>中文（母語）</li><li>英文 IELTS 5.0</li><li>TOEIC 555</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/web-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>電商平台</h4>
-                  <p>Jade服飾品牌支援B2B2C上架商品</p>
-                  <a href="assets/img/portfolio/web-1.png"
-                    title="6人團隊開發B2B2C電商平台，支援會員申請廠商，上架多型號商品。使用ASP.NET Core WebAPI及Vue專案，前後端整合開發，使用Azure SQL資料庫與串接第三方API。"
-                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+    <!-- Works -->
+    <section class="section works" id="works" aria-labelledby="works-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-head__num" aria-hidden="true">04</p>
+          <h2 class="section-head__title" id="works-title"><span data-split>作品集</span></h2>
+          <p class="section-head__en" aria-hidden="true">Selected Works</p>
+        </header>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/web-2.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>後台</h4>
-                  <p>管理員後台能夠新增修改通知等</p>
-                  <a href="assets/img/portfolio/web-2.png"
-                    title="實作通知中心，SMTP發送信件、Hangfire排程、OpenAI生成訊息。SignalR商品導向即時聊天室。Open AI API串接客服及生成文案。"
-                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+        <div class="filters" role="group" aria-label="篩選作品類別" data-reveal>
+          <button type="button" class="filter is-active" data-filter="*" aria-pressed="true">全部<sup>12</sup></button>
+          <button type="button" class="filter" data-filter="art" aria-pressed="false">插畫<sup>3</sup></button>
+          <button type="button" class="filter" data-filter="exhibit" aria-pressed="false">展覽<sup>3</sup></button>
+          <button type="button" class="filter" data-filter="web" aria-pressed="false">網站<sup>3</sup></button>
+          <button type="button" class="filter" data-filter="software" aria-pressed="false">軟體<sup>3</sup></button>
+        </div>
+        <p class="visually-hidden" aria-live="polite" id="filter-status"></p>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/web-3.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>儀表板</h4>
-                  <p>查看各個管理中心</p>
-                  <a href="assets/img/portfolio/web-3.png" title="串接每個管理中心的API取的資料，也使用Chart.js製作圖表"
-                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+        <ul class="works__grid" role="list">
+          <li class="work" data-cat="art">
+            <button type="button" class="work__btn" data-cursor="看故事">
+              <span class="work__media"><img src="assets/img/opt/artwork-1-640.webp"
+                  srcset="assets/img/opt/artwork-1-640.webp 640w, assets/img/opt/artwork-1-1280.webp 1280w, assets/img/opt/artwork-1-1920.webp 1920w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="905" loading="lazy"
+                  decoding="async" alt="插畫：赫滋在彩虹與雲端羊群間高空彈跳，下方是糖果罐聚落"></span>
+              <span class="work__meta"><span class="work__cat">插畫・故事模特</span><span class="work__title">愛與熱愛</span><span class="work__sub">Love and Passion</span></span>
+            </button>
+            <div class="work__story" hidden>赫滋放膽地玩高空彈跳，因為她感受到雲端的羊群支持著她，期待能擁有彩虹般繽紛的人生，也因此發現了許多由糖果罐聚集的小聚落，有著不同的生活風景。</div>
+          </li>
 
+          <li class="work" data-cat="web">
+            <button type="button" class="work__btn" data-cursor="看專案">
+              <span class="work__media"><img src="assets/img/opt/web-1-640.webp"
+                  srcset="assets/img/opt/web-1-640.webp 640w, assets/img/opt/web-1-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="305" loading="lazy"
+                  decoding="async" alt="Jade 服飾電商平台首頁截圖"></span>
+              <span class="work__meta"><span class="work__cat">網站・B2B2C</span><span class="work__title">電商平台</span><span class="work__sub">Jade 服飾品牌，支援 B2B2C 上架商品</span></span>
+            </button>
+            <div class="work__story" hidden>6 人團隊開發 B2B2C 電商平台，支援會員申請廠商，上架多型號商品。使用 ASP.NET Core Web API 及 Vue 專案，前後端整合開發，使用 Azure SQL 資料庫與串接第三方 API。</div>
+          </li>
 
-            <!-- 軟體 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/software-2.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>周邊商品</h4>
-                  <p>賣家紀錄販售的商品項目</p>
-                  <a href="assets/img/portfolio/software-2.png" title="針對市集販售場景設計，便於插畫商品與訂單管理。自建 WinForms 系統。"
-                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+          <li class="work" data-cat="exhibit">
+            <button type="button" class="work__btn" data-cursor="看展覽">
+              <span class="work__media"><img src="assets/img/opt/gallery-2-640.webp"
+                  srcset="assets/img/opt/gallery-2-640.webp 640w, assets/img/opt/gallery-2-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="475" loading="lazy"
+                  decoding="async" alt="雅婷坐在亞洲插畫藝術博覽會的展間床邊，床上鋪滿插畫作品"></span>
+              <span class="work__meta"><span class="work__cat">展覽・插畫展</span><span class="work__title">2024 亞洲插畫藝術博覽會</span><span class="work__sub">承億酒店・高雄</span></span>
+            </button>
+            <div class="work__story" hidden>「2024 第三屆亞洲插畫藝術博覽會」——成為生活的收藏家，讓藝術走進日常，遇見你的心動之作！
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/software-3.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>商品管理</h4>
-                  <p>上下架商品並進行庫存、單價管理</p>
-                  <a href="assets/img/portfolio/software-3.png" title="具備前後台管理介面，支援 CRUD 操作（新增／修改／刪除／查詢）。"
-                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+由承億集團主辦「2024 承億亞灣藝術節」，以推展「讓藝術，成為亞洲新灣區的國際語言」為目標，規劃雙展場：承億酒店「2024 第三屆亞洲插畫藝術博覽會」與高雄港旅運中心「藝術大入港：漫波」，匯聚國內外一流藝術家、畫廊及產業資源，創造全新藝術跨場域風貌，並帶來沉浸式藝術交流體驗。</div>
+          </li>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/software-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>文創展售</h4>
-                  <p>自建 WinForms 系統，具備前後台管理介面</p>
-                  <a href="assets/img/portfolio/software-1.png" title="使用技術：C#、WinForms、SQL Server、Ado.Net、LINQ"
-                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+          <li class="work" data-cat="software">
+            <button type="button" class="work__btn" data-cursor="看專案">
+              <span class="work__media"><img src="assets/img/opt/software-2-640.webp"
+                  srcset="assets/img/opt/software-2-640.webp 640w, assets/img/opt/software-2-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="368" loading="lazy"
+                  decoding="async" alt="WinForms 周邊商品管理畫面截圖"></span>
+              <span class="work__meta"><span class="work__cat">軟體・WinForms</span><span class="work__title">周邊商品</span><span class="work__sub">賣家紀錄販售的商品項目</span></span>
+            </button>
+            <div class="work__story" hidden>針對市集販售場景設計，便於插畫商品與訂單管理。自建 WinForms 系統。</div>
+          </li>
 
+          <li class="work" data-cat="art">
+            <button type="button" class="work__btn" data-cursor="看故事">
+              <span class="work__media"><img src="assets/img/opt/artwork-2-640.webp"
+                  srcset="assets/img/opt/artwork-2-640.webp 640w, assets/img/opt/artwork-2-1280.webp 1280w, assets/img/opt/artwork-2-1920.webp 1920w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="905" loading="lazy"
+                  decoding="async" alt="插畫：赫滋抓著糖果氣球飛起，一串羊像風箏般跟著她飛過山巒與小鎮"></span>
+              <span class="work__meta"><span class="work__cat">插畫・故事模特</span><span class="work__title">希望乘載</span><span class="work__sub">Hope to Be Carried</span></span>
+            </button>
+            <div class="work__story" hidden>有一天，赫滋抓起了一把糖果。她沒想到，那些曾被她品嚐的糖果竟帶著她飄起來，向天空飛去！赫滋不想單獨上路，於是牽著一群羊，而羊則緊抓著愛吃的嫩葉和樹枝。就這樣，他們像風箏一樣連成一線，在空中飛翔，眺望遠方的山巒與城市。城中的人們抬頭驚呼：「哇！是什麼讓他們飛了起來呢？」也許，是心中的那一股希望吧。</div>
+          </li>
 
-            <!-- 插畫 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/artwork-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>故事模特</h4>
-                  <p>愛與熱愛Love and Passion</p>
-                  <a href="assets/img/portfolio/artwork-1.png"
-                    title="赫滋放膽地玩高空彈跳，因為她感受到雲端的羊群支持著她，期待能擁有彩虹般繽紛的人生，也因此發現了許多由糖果罐聚集的小聚落，有著不同的生活風景。"
-                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+          <li class="work" data-cat="web">
+            <button type="button" class="work__btn" data-cursor="看專案">
+              <span class="work__media"><img src="assets/img/opt/web-2-640.webp"
+                  srcset="assets/img/opt/web-2-640.webp 640w, assets/img/opt/web-2-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="302" loading="lazy"
+                  decoding="async" alt="電商平台管理員後台通知中心截圖"></span>
+              <span class="work__meta"><span class="work__cat">網站・後台</span><span class="work__title">管理後台</span><span class="work__sub">管理員可新增、修改通知等</span></span>
+            </button>
+            <div class="work__story" hidden>實作通知中心，SMTP 發送信件、Hangfire 排程、OpenAI 生成訊息。SignalR 商品導向即時聊天室。OpenAI API 串接客服及生成文案。</div>
+          </li>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/artwork-3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>故事模特</h4>
-                  <p>城市更迭Drifting Through Urban Tides</p>
-                  <a href="assets/img/portfolio/artwork-3.jpg" title="
-在都市更新的浪潮下，傳統文化與建築難以完整保留，許多承載記憶的空間逐漸消失。然而，故事不應被覆蓋，而是與新建設共存，成為城市的一部分。
+          <li class="work" data-cat="exhibit">
+            <button type="button" class="work__btn" data-cursor="看展覽">
+              <span class="work__media"><img src="assets/img/opt/gallery-7-640.webp"
+                  srcset="assets/img/opt/gallery-7-640.webp 640w, assets/img/opt/gallery-7-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="460" loading="lazy"
+                  decoding="async" alt="中國國際動漫博覽會上的赫滋與羊展位，參觀者駐足觀看"></span>
+              <span class="work__meta"><span class="work__cat">展覽・動漫展</span><span class="work__title">2024 中國國際動漫博覽會</span><span class="work__sub">第十四屆影視動漫版權保護和貿易博覽會</span></span>
+            </button>
+            <div class="work__story" hidden>第十四屆中國國際影視動漫版權保護和貿易博覽會。
 
-赫滋與羊悠遊在池塘之間，在荷葉上穿梭，每片葉子都是一座城市、一家店舖，承載著不同的故事。這些看似尋常的角落，卻是當事人記憶深刻的地方。" data-gallery="portfolio-gallery-branding"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+來參觀的遊客 90% 以上都認為赫滋與羊這個 IP 的形象和故事讓人感到純粹、溫馨和童真，覺得這個形象非常治癒，希望作者可以繼續創作這樣觸動人心的作品。</div>
+          </li>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/artwork-2.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>故事模特</h4>
-                  <p>希望乘載 Hope to Be Carried</p>
-                  <a href="assets/img/portfolio/artwork-2.png"
-                    title="有一天，赫滋抓起了一把糖果。她沒想到，那些曾被她品嚐的糖果竟帶著她飄起來，向天空飛去！赫滋不想單獨上路，於是牽著一群羊，而羊則緊抓著愛吃的嫩葉和樹枝。就這樣，他們像風箏一樣連成一線，在空中飛翔，眺望遠方的山巒與城市。城中的人們抬頭驚呼：“哇！是什麼讓他們飛了起來呢？”也許，是心中的那一股希望吧。"
-                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+          <li class="work" data-cat="art">
+            <button type="button" class="work__btn" data-cursor="看故事">
+              <span class="work__media"><img src="assets/img/opt/artwork-3-640.webp" width="640" height="905" loading="lazy"
+                  decoding="async" alt="插畫：赫滋與羊在荷葉間悠遊，每片荷葉上都有一座小城市與店舖"></span>
+              <span class="work__meta"><span class="work__cat">插畫・故事模特</span><span class="work__title">城市更迭</span><span class="work__sub">Drifting Through Urban Tides</span></span>
+            </button>
+            <div class="work__story" hidden>在都市更新的浪潮下，傳統文化與建築難以完整保留，許多承載記憶的空間逐漸消失。然而，故事不應被覆蓋，而是與新建設共存，成為城市的一部分。
 
-            <!-- 展覽 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/gallery-2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>
-                    插畫展
-                  </h4>
-                  <p>2024亞洲插畫藝術博覽會</p>
-                  <a href="assets/img/portfolio/gallery-2.jpg"
-                    title="「2024第三屆亞洲插畫藝術博覽會」
+赫滋與羊悠遊在池塘之間，在荷葉上穿梭，每片葉子都是一座城市、一家店舖，承載著不同的故事。這些看似尋常的角落，卻是當事人記憶深刻的地方。</div>
+          </li>
 
-成為生活的收藏家，讓藝術走進日常，遇見你的心動之作！
+          <li class="work" data-cat="software">
+            <button type="button" class="work__btn" data-cursor="看專案">
+              <span class="work__media"><img src="assets/img/opt/software-3-640.webp"
+                  srcset="assets/img/opt/software-3-640.webp 640w, assets/img/opt/software-3-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="371" loading="lazy"
+                  decoding="async" alt="WinForms 商品管理畫面，含庫存與單價欄位"></span>
+              <span class="work__meta"><span class="work__cat">軟體・WinForms</span><span class="work__title">商品管理</span><span class="work__sub">上下架商品並管理庫存、單價</span></span>
+            </button>
+            <div class="work__story" hidden>具備前後台管理介面，支援 CRUD 操作（新增／修改／刪除／查詢）。</div>
+          </li>
 
-由承億集團主辦「2024承億亞灣藝術節」，以推展「讓藝術，成為亞洲新灣區的國際語言」為目標，重磅規劃雙展場一 承億酒店「2024第三屆亞洲插畫藝術博覽會」與高雄港旅運 中心「藝術大入港：漫波」，雙展場匯聚國內外一流藝術家、 畫廊及產業資源，創造全新藝術跨場域風貌，並帶來沉浸式藝術交流體驗。"
-                    data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
+          <li class="work" data-cat="web">
+            <button type="button" class="work__btn" data-cursor="看專案">
+              <span class="work__media"><img src="assets/img/opt/web-3-640.webp"
+                  srcset="assets/img/opt/web-3-640.webp 640w, assets/img/opt/web-3-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="305" loading="lazy"
+                  decoding="async" alt="電商平台儀表板，含彩色統計卡片與折線圖"></span>
+              <span class="work__meta"><span class="work__cat">網站・Dashboard</span><span class="work__title">儀表板</span><span class="work__sub">一覽各個管理中心的數據</span></span>
+            </button>
+            <div class="work__story" hidden>串接每個管理中心的 API 取得資料，並使用 Chart.js 製作圖表。</div>
+          </li>
 
+          <li class="work" data-cat="exhibit">
+            <button type="button" class="work__btn" data-cursor="看展覽">
+              <span class="work__media"><img src="assets/img/opt/gallery-5-640.webp"
+                  srcset="assets/img/opt/gallery-5-640.webp 640w, assets/img/opt/gallery-5-1280.webp 1280w"
+                  sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" width="640" height="480" loading="lazy"
+                  decoding="async" alt="躺臥著創作展現場，牆上掛著插畫與展名海報，旁有乾燥花與藤編鏡"></span>
+              <span class="work__meta"><span class="work__cat">展覽・個展</span><span class="work__title">2024 躺臥著創作展</span><span class="work__sub">赫滋與羊個展</span></span>
+            </button>
+            <div class="work__story" hidden>躺臥，是一個放鬆的姿態，可以在被太陽曬得暖洋洋的草皮上，無憂無慮地躺臥著，也可以窩在冷氣房中的棉被裡，無所事事地躺臥著。赫滋與羊喜歡躺在沒有任何煩憂，任由雲朵悠悠飄過，風輕輕吹拂的草地上。</div>
+          </li>
 
+          <li class="work" data-cat="software">
+            <button type="button" class="work__btn" data-cursor="看專案">
+              <span class="work__media"><img src="assets/img/opt/software-1-640.webp" width="640" height="372" loading="lazy"
+                  decoding="async" alt="赫滋與羊文創展售系統登入畫面"></span>
+              <span class="work__meta"><span class="work__cat">軟體・WinForms</span><span class="work__title">文創展售系統</span><span class="work__sub">自建 WinForms，具前後台管理介面</span></span>
+            </button>
+            <div class="work__story" hidden>使用技術：C#、WinForms、SQL Server、ADO.NET、LINQ。</div>
+          </li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--light" data-reveal><span class="dot" aria-hidden="true"></span>05 — 聯絡方式</p>
+        <h2 class="contact__title" id="contact-title">
+          <span class="line"><span data-split>有個故事想說嗎？</span></span>
+          <span class="line"><span data-split>一起把它<em>畫出來。</em></span></span>
+        </h2>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/gallery-7.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>動漫展</h4>
-                  <p>2024中國國際動漫博覽會</p>
-                  <a href="assets/img/portfolio/gallery-7.jpg" title="第十四屆中國國際影視動漫版權保護和貿易博覽會
-
-來參觀的遊客90%以上都認為赫滋與羊這個ip的形象和故事讓人感到純粹，溫馨和童真，覺得這個形象非常治癒。希望作者可以繼續創作這樣觸動人心的作品。" data-gallery="portfolio-gallery-book"
-                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/gallery-5.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>個展</h4>
-                  <p>2024躺臥著創作展</p>
-                  <a href="assets/img/portfolio/gallery-5.jpg"
-                    title="躺臥，是一個放鬆的姿態，可以在被太陽曬的暖洋洋的草皮 上，無憂無慮地躺臥著，也可以窩在冷氣房中的棉被裡，無所事事地躺臥着。赫滋與羊喜歡躺在沒有任何煩憂，任由雲朵悠 悠飄過，風輕輕吹拂的草地上。"
-                    data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
-                  <!-- <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                      class="bi bi-link-45deg"></i></a> -->
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
+        <div class="contact__mail" data-reveal>
+          <a class="mail-link" href="mailto:ckchildlikekid@gmail.com" data-cursor="寫信">ckchildlikekid<span>@gmail.com</span></a>
+          <button type="button" class="copy-btn" data-copy="ckchildlikekid@gmail.com" data-magnetic>
+            <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg><span>複製信箱</span>
+          </button>
         </div>
 
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>聯絡方式</h2>
-        <p>若有合作邀約，歡迎聯絡我</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-5">
-
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>高雄市，岡山區</h3>
-                  <!-- <p>A108 Adam Street, New York, NY 535022</p> -->
-                </div>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>0966-306-323<br></h3>
-
-                </div>
-              </div>
-            </div><!-- End Info Item -->
-
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>ckchildlikekid@gmail.com</h3>
-                </div>
-              </div>
-            </div><!-- End Info Item -->
-
+        <dl class="contact__info" data-reveal>
+          <div>
+            <dt>電話</dt>
+            <dd><a href="tel:+886966306323">0966-306-323</a></dd>
           </div>
-        </div>
+          <div>
+            <dt>所在地</dt>
+            <dd>高雄市・岡山區</dd>
+          </div>
+          <div>
+            <dt>社群</dt>
+            <dd class="socials">
+              <a href="https://www.facebook.com/p/%E8%B5%AB%E6%BB%8B%E8%88%87%E7%BE%8A-HerzBaa-100093899453510/"
+                target="_blank" rel="noopener" aria-label="Facebook（另開新視窗）" data-magnetic><svg class="icon" aria-hidden="true"><use href="#i-facebook" /></svg></a>
+              <a href="https://www.instagram.com/ckhz.art/" target="_blank" rel="noopener" aria-label="Instagram（另開新視窗）" data-magnetic><svg class="icon" aria-hidden="true"><use href="#i-instagram" /></svg></a>
+              <a href="https://www.linkedin.com/in/ya-ting-zhong-002512307" target="_blank" rel="noopener" aria-label="LinkedIn（另開新視窗）" data-magnetic><svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg></a>
+            </dd>
+          </div>
+        </dl>
       </div>
-
-    </section><!-- /Contact Section -->
+    </section>
 
   </main>
 
-  <div id="footer-include"></div>
+  <footer class="footer">
+    <div class="container footer__top">
+      <p class="footer__tagline">繪畫創作｜原創商品｜平面設計｜活動展演｜程式設計</p>
+      <a href="#top" class="to-top" data-magnetic aria-label="回到頁首"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+    </div>
+    <p class="footer__word" aria-hidden="true">HerzBaa</p>
+    <div class="parade" aria-hidden="true">
+      <svg><use href="#sheep" /></svg><svg><use href="#sheep" /></svg><svg><use href="#sheep" /></svg><svg><use href="#sheep" /></svg><svg><use href="#sheep" /></svg>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span class="year">2025</span> 赫滋與羊國際藝術有限公司 HerzBaa. All rights reserved.</p>
+      <p>Designed &amp; built with 🐑 in Kaohsiung</p>
+    </div>
+  </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <!-- Toast -->
+  <div class="toast" role="status" aria-live="polite"></div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+  <!-- Lightbox -->
+  <dialog class="lightbox" aria-labelledby="lb-title">
+    <div class="lightbox__inner">
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" alt="">
+      </figure>
+      <div class="lightbox__panel">
+        <p class="lightbox__count"><span class="lb-index">01</span> / <span class="lb-total">12</span></p>
+        <p class="lightbox__cat"></p>
+        <h3 class="lightbox__title" id="lb-title"></h3>
+        <p class="lightbox__sub"></p>
+        <div class="lightbox__story"></div>
+        <div class="lightbox__nav">
+          <button type="button" class="lb-btn lb-prev" aria-label="上一件作品"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+          <button type="button" class="lb-btn lb-next" aria-label="下一件作品"><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+        </div>
+      </div>
+      <button type="button" class="lb-btn lb-close" aria-label="關閉"><svg class="icon" aria-hidden="true"><use href="#i-close" /></svg></button>
+    </div>
+  </dialog>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <script>
-    // 動態載入 header 和 footer，載入完成後再載入 main.js
-    document.addEventListener('DOMContentLoaded', function () {
-      Promise.all([
-        fetch('HerzBaaWeb/header.html').then(res => res.text()),
-        fetch('HerzBaaWeb/footer.html').then(res => res.text())
-      ]).then(([headerHtml, footerHtml]) => {
-        document.getElementById('header-include').innerHTML = headerHtml;
-        document.getElementById('footer-include').innerHTML = footerHtml;
-        // header/footer 載入完成後再載入 main.js
-        var script = document.createElement('script');
-        script.src = 'assets/js/main.js';
-        document.body.appendChild(script);
-      });
-    });
-  </script>
-
+  <script src="assets/vendor/lenis/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 
 </html>
