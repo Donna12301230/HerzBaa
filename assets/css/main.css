@@ -52,6 +52,7 @@
   --ease-back: cubic-bezier(.34, 1.56, .64, 1);
 
   --header-h: 84px;
+  --maxw: 1320px;
 }
 
 /* ---------- Reset ---------- */
@@ -130,7 +131,7 @@ em { font-style: normal; }
 .skip-link:focus { transform: none; }
 
 .container {
-  width: min(1320px, 100% - var(--gutter) * 2);
+  width: min(var(--maxw), 100% - var(--gutter) * 2);
   margin-inline: auto;
 }
 
@@ -352,7 +353,7 @@ html.is-returning .loader { display: none; }
 }
 .site-header__inner {
   height: 100%;
-  width: min(1440px, 100% - var(--gutter) * 2);
+  width: min(calc(var(--maxw) + 120px), 100% - var(--gutter) * 2);
   margin-inline: auto;
   display: flex;
   align-items: center;
@@ -530,7 +531,7 @@ html.is-returning .loader { display: none; }
 
 .hero__content {
   align-self: center;
-  width: min(1320px, 100% - var(--gutter) * 2);
+  width: min(var(--maxw), 100% - var(--gutter) * 2);
   margin: calc(var(--header-h) + 2rem) auto 0;
 }
 .hero__eyebrow { margin-bottom: 1.6rem; }
@@ -594,7 +595,7 @@ html.is-returning .loader { display: none; }
 @media (min-width: 1100px) { .br-lg { display: inline; } }
 
 .hero__foot {
-  width: min(1320px, 100% - var(--gutter) * 2);
+  width: min(var(--maxw), 100% - var(--gutter) * 2);
   margin: 0 auto;
   padding: 2rem 0 clamp(1.25rem, 3vw, 2.25rem);
   display: flex;
@@ -671,6 +672,9 @@ html.is-returning .loader { display: none; }
   .hero__foot { flex-direction: column-reverse; align-items: flex-start; }
   .scroll-cue { display: none; }
 }
+
+/* body 的 overflow-x: clip 不會傳到整個視窗，斜放的跑馬燈仍會撐出橫向捲軸，所以在 main 上裁切 */
+#main { overflow-x: clip; }
 
 /* ---------- Marquee ---------- */
 .marquee {
@@ -790,7 +794,7 @@ html.is-returning .loader { display: none; }
   transform: rotate(-5deg);
   box-shadow: 0 10px 24px rgba(240, 128, 128, .25);
 }
-.portrait__sticker small { display: block; margin-top: .25rem; font-family: var(--font-sans); font-weight: 500; font-size: .62em; color: var(--ink-2); }
+.portrait__sticker small { display: block; margin-top: .25rem; font-family: var(--font-sans); font-weight: 500; font-size: max(.62em, 12px); color: var(--ink-2); }
 
 .stats {
   display: grid;
@@ -1047,7 +1051,7 @@ html.is-returning .loader { display: none; }
   font-weight: 500;
   transition: background-color .35s, color .35s, border-color .35s, transform .4s var(--ease-back);
 }
-.filter sup { margin-left: .2rem; font-family: var(--font-display); font-style: italic; font-size: .7em; color: var(--rose-ink); transition: color .35s; }
+.filter sup { margin-left: .2rem; font-family: var(--font-display); font-style: italic; font-size: max(.7em, 12px); color: var(--rose-ink); transition: color .35s; }
 .filter:hover { transform: translateY(-2px); border-color: var(--ink); }
 .filter.is-active { background: var(--rose-1); color: var(--on-rose); border-color: var(--rose-1); }
 .filter.is-active sup { color: var(--on-rose-2); }
@@ -1375,6 +1379,35 @@ html.is-returning .loader { display: none; }
   .lightbox__story { overflow: visible; }
 }
 .lb-open { overflow: hidden; }
+
+/* ---------- 響應式：手機橫放（高度很矮） ---------- */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root { --header-h: 56px; }
+  .brand, .is-scrolled .brand { width: 92px; }
+  .hero { min-height: auto; }
+  .hero::before {
+    background: radial-gradient(120% 120% at 0% 60%, rgba(251, 246, 239, .95) 0%, rgba(251, 246, 239, .8) 40%, rgba(251, 246, 239, 0) 75%);
+  }
+  .hero__content { align-self: center; margin-top: calc(var(--header-h) + 1rem); }
+  .hero__eyebrow { margin-bottom: .6rem; }
+  .hero__title { font-size: clamp(2.6rem, 15vh, 4.6rem); }
+  .hero__sub { margin-top: .8rem; gap: .4rem; }
+  .hero__roles { font-size: 1.15rem; }
+  .hero__lede { font-size: .95rem; }
+  .hero__foot { padding-top: 1rem; }
+  .scroll-cue { display: none; }
+  .contact__title { font-size: clamp(2rem, 12vh, 3.4rem); }
+}
+
+/* ---------- 響應式：大螢幕等比放大 ---------- */
+@media (min-width: 1920px) {
+  html { font-size: 17.5px; }
+  :root { --maxw: 1560px; }
+}
+@media (min-width: 2400px) {
+  html { font-size: 20px; }
+  :root { --maxw: 1860px; }
+}
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
